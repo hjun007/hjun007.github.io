@@ -44,11 +44,11 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <script>
     var gitment = new Gitment({
-        owner: 'hj',
-        repo: 'hjun007.github.io',
+        owner: '{{site.comment_gitment_username}}',
+        repo: '{{site.comment_gitment_repo}}',
         oauth: {
-            client_id: 'e3431452fbb3d7330057',
-            client_secret: 'de72d9de7a6ca25f1f2f270f47c47805d17ed24e',
+            client_id: '{{site.comment_gitment_clientId}}',
+            client_secret: '{{site.comment_gitment_clientSecret}}',
         },
     });
     gitment.render('gitmentContainer');

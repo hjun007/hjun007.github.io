@@ -14,6 +14,7 @@ comment:
     gitment: hjun007.github.io
     #uyan: xxx  # 有言id,登录有言官网申请
 
+comment_gitment_username: hjun007
 comment_gitment_repo: hjun007.github.io
 comment_gitment_clientId: e3431452fbb3d7330057
 comment_gitment_clientSecret: de72d9de7a6ca25f1f2f270f47c47805d17ed24e
