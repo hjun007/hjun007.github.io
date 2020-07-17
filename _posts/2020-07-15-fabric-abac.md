@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Fabric链码中基于属性的访问控制"
+date: 2020-07-15
+description: "2020-07-15-Fabric链码中基于属性的访问控制"
+categories: 区块链
+
+tag: [区块链,Fabric,链码,访问控制]
+
+---
+
 # 在用户证书中加入自定义属性
 
 - 使用fabric-ca-client在证书中加入自定义属性
