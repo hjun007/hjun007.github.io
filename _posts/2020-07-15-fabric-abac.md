@@ -1,17 +1,19 @@
 # 在用户证书中加入自定义属性
 
 - 使用fabric-ca-client在证书中加入自定义属性
-```bash
+
+```
 # 管理员register用户id的时候，加上自定义属性
 $ fabric-ca-client register --id.name user1 --id.secret user1pw --id.type user --id.affiliation org1 --id.attrs 'attr1=value1'
 # 管理员enroll用户的时候，指定之前注册的id中的哪些属性要加入到证书中
 fabric-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attrs "attr1,attr2:opt"
 # enroll的时候，属性后面加opt，说明该属性是可选的，不带opt的属性，是在register用户id的时候必须指定该属性，否则enroll失败
 ```
+
 - 使用fabric-ca-sdk在证书中加入自定义属性
 以fabric-samples/fabcar/java/src/main/java/org/example/RegisterUser.java为例
 
-```java
+```
 /*
 SPDX-License-Identifier: Apache-2.0
 */
@@ -136,12 +138,16 @@ public class RegisterUser {
 
 }
 ```
+
 用openssl查看enroll获得的证书
-```bash
+
+```
 openssl x509 -in user1.crt.pem -text -noout
 ```
+
 可以看到证书里面已经包含了指定的属性了
-```bash
+
+```
 Certificate:
     Data:
         Version: 3 (0x2)
@@ -182,13 +188,16 @@ Certificate:
          02:20:54:4e:a7:47:02:2b:ef:d8:9e:25:bf:4b:d3:60:db:51:
          b2:ee:bc:40:a9:00:4b:af:05:70:13:a1:43:c2:ef:8b
 ```
+
 # 在链码中使用自定义属性
 在链码中引入cid包
-```go
+
+```
 "github.com/hyperledger/fabric/core/chaincode/shim/ext/cid"
 ```
 在链码中使用cid包，以fabcar中的createCar为例
-```go
+
+```
 func (s *SmartContract) createCar(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 5 {
@@ -215,9 +224,11 @@ func (s *SmartContract) createCar(APIstub shim.ChaincodeStubInterface, args []st
 	return shim.Success([]byte(retVal))
 }
 ```
+
 # 用前面注册得到的用户去调用链码
 修改一下fabcar的ClientApp.java
-```java
+
+```
 /*
 SPDX-License-Identifier: Apache-2.0
 */
@@ -277,12 +288,16 @@ public class ClientApp {
 	}
 }
 ```
+
 执行SDK
-```bash
+
+```
 fabcar/java$ mvn test
 ```
+
 输出结果如下：
-```bash
+
+```
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
@@ -299,4 +314,5 @@ Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 ```
+
 可以看到，能够正常读取到自定义的attr1的值
