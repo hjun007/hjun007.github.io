@@ -10,6 +10,7 @@ fabric-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attr
 ```
 - 使用fabric-ca-sdk在证书中加入自定义属性
 以fabric-samples/fabcar/java/src/main/java/org/example/RegisterUser.java为例
+
 ```java
 /*
 SPDX-License-Identifier: Apache-2.0
