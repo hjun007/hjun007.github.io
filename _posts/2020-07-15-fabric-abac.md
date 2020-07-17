@@ -1,6 +1,6 @@
 # 在用户证书中加入自定义属性
 
-- 使用fabric-ca-client在证书中加入自定义属性
+可以使用fabric-ca-client在证书中加入自定义属性
 
 ```
 # 管理员register用户id的时候，加上自定义属性
@@ -10,7 +10,7 @@ fabric-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attr
 # enroll的时候，属性后面加opt，说明该属性是可选的，不带opt的属性，是在register用户id的时候必须指定该属性，否则enroll失败
 ```
 
-- 使用fabric-ca-sdk在证书中加入自定义属性
+也可以使用fabric-ca-sdk在证书中加入自定义属性
 以fabric-samples/fabcar/java/src/main/java/org/example/RegisterUser.java为例
 
 ```
