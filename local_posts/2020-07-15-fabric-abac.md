@@ -9,7 +9,7 @@ tag: [区块链,Fabric,链码,访问控制]
 
 ---
 
-## 1.在用户证书中加入自定义属性
+## 1. 在用户证书中加入自定义属性
 
 可以使用fabric-ca-client在证书中加入自定义属性
 ```
@@ -194,7 +194,7 @@ Certificate:
          02:20:54:4e:a7:47:02:2b:ef:d8:9e:25:bf:4b:d3:60:db:51:
          b2:ee:bc:40:a9:00:4b:af:05:70:13:a1:43:c2:ef:8b
 ```
-## 2.在链码中使用自定义属性
+## 2. 在链码中使用自定义属性
 在链码中引入cid包
 ```
 "github.com/hyperledger/fabric/core/chaincode/shim/ext/cid"
@@ -227,7 +227,7 @@ func (s *SmartContract) createCar(APIstub shim.ChaincodeStubInterface, args []st
 	return shim.Success([]byte(retVal))
 }
 ```
-## 3.用前面注册得到的用户去调用链码
+## 3. 用前面注册得到的用户去调用链码
 修改一下fabcar的ClientApp.java
 ```
 /*
