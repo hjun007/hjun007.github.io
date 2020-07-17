@@ -5,7 +5,7 @@ echo "path: "$path
 file=$(basename $path)
 # windows不支持toc
 #md-toc --insert $file
-echo "generate md-toc success!"
+#echo "generate md-toc success!"
 # sed 's/原字符串/替换的字符串/g'
 # s后面的字符作为分隔符
 sed 's#../images#/images#g' $file >> ../_posts/$file
